@@ -24,7 +24,7 @@ jobs:
         id: get_project_name
         run: echo "::set-output name=project_name::$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)"
       - name: Expose project name as an output
-        run: echo "POM_NAME=${{ steps.get_project_name.outputs.artifactId }}" >> $GITHUB_ENV
+        run: echo "POM_NAME=${{ steps.get_project_name.outputs.project_name }}" >> $GITHUB_ENV
       - name: Expose version as an output
         run: echo "POM_VERSION=${{ steps.get_version.outputs.version }}" >> $GITHUB_ENV
       - name: verify project variables
